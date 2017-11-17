@@ -1,11 +1,15 @@
 <div class="content">
 	<header>
-		<div class="container"></div>
+		<div class="container">
+			<a routerLink="/">Заказы</a>
+			<a>Задачи</a>
+			<a routerLink="/clients">Клиенты</a>
+			<a>Услуги</a>
+			<a>Оплаты</a>
+		</div>
 	</header>
 	<lr-progress></lr-progress>
 	<div class="container">
-		<lr-button>Обновить <md-icon>autorenew</md-icon></lr-button>
-		<p>something</p>
 		<router-outlet></router-outlet>
 	</div>
 </div>

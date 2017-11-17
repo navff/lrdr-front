@@ -5,6 +5,10 @@ import { UserComponent } from './user.component';
 
 import { SharedModule } from '../shared/_shared.module';
 import { UserRoutingModule } from './user-routing.module';
+import { OrdersComponent } from './orders/orders.component';
+import { OrderComponent } from './orders/order/order.component';
+import { ClientsComponent } from './clients/clients.component';
+import { ClientComponent } from './clients/client/client.component';
 
 @NgModule({
   imports: [
@@ -14,6 +18,10 @@ import { UserRoutingModule } from './user-routing.module';
   ],
   declarations: [
     UserComponent,
+    OrdersComponent,
+    ClientsComponent,
+    OrderComponent,
+    ClientComponent,
   ]
 })
 export class UserModule { }
