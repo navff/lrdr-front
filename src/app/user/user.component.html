@@ -10,7 +10,8 @@
 			<a (click)="toggleAdmin()">Admin</a>
 			<a class="command">Наша команда</a>
 			<a><md-icon>mail</md-icon></a>
-			<a>Выход</a>
+			<a class="profile"><md-icon>face</md-icon>{{user?.Name}}</a>
+			<a (click)="logout()">Выход</a>
 		</div>
 	</header>
 	<lr-progress></lr-progress>

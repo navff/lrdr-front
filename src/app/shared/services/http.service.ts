@@ -22,7 +22,6 @@ export class HttpService extends Http {
     request(request: Request, options?: RequestOptionsArgs): Observable<Response> {
         this.responding.next(true);
         request.url = apiUrl + request.url;
-        // 85eb7c96918534cb6830a9ef9010d2eb9de267483ede1f001b2c0c75ac1dd017
         request.headers.set('Authorization', `token ${localStorage.getItem('token')}`);
         return super.request(request, options)
             .finally(() => this.responding.next(false));
