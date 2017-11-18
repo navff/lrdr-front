@@ -3,7 +3,7 @@
 @include mat-core();
 
 $custom-theme-primary: mat-palette($mat-grey, $default: 700);
-$custom-theme-accent: mat-palette($mat-orange, $default: A700);
+$custom-theme-accent: mat-palette($mat-orange, $default: 700);
 $custom-theme-warn: mat-palette($mat-red);
 
 $custom-theme: mat-light-theme($custom-theme-primary, $custom-theme-accent, $custom-theme-warn);

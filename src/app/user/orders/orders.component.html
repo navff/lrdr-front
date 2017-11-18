@@ -1,2 +1,21 @@
 <h1>Заказы</h1>
-<button md-fab (click)="do()"></button>
+<md-tab-group (selectedIndexChange)="onTabChange($event)">
+    <md-tab color="accent" label="ОПЛАЧЕННЫЕ"></md-tab>
+    <md-tab color="accent" label="НЕОПЛАЧЕННЫЕ"></md-tab>
+    <md-tab color="accent" label="Я КЛИЕНТ"></md-tab>
+    <md-tab color="accent" label="ТОЛЬКО МОИ"></md-tab>
+    <md-tab color="accent" label="ВЫПОЛНЕННЫЕ"></md-tab>
+</md-tab-group>
+<div class="order" *ngFor="let order of orders">
+    <div class="column">
+        <h2>{{order.Name}}</h2>
+        <p>Заказчик: <span>{{order.CustomerUser.Name}}</span></p>
+    </div>
+    <div class="column">
+        <p class="date">{{order.Created | myDate}}</p>
+        <div class="row">
+            <p>Срок до: <span>{{order.Deadline | myDate}}</span></p>
+            <p>Цена: <span>{{order.Price}}₽</span></p>
+        </div>
+    </div>
+</div>

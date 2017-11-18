@@ -33,7 +33,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { Http } from '@angular/http';
 import { HttpService } from './shared/services/http.service';
 
-import '../styles/material-theme.css';
+import '../styles/material-theme.scss';
 import '../styles/reset.css';
 
 // Application wide providers

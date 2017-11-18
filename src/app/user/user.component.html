@@ -1,12 +1,16 @@
 <div class="content">
 	<header>
 		<div class="container">
+			<img routerLink="/" src="assets/img/logo.png" alt="Light Order">
 			<a routerLink="/">Заказы</a>
 			<a>Задачи</a>
 			<a routerLink="/clients">Клиенты</a>
 			<a>Услуги</a>
-			<a>Оплаты</a>
+			<!-- <a routerLink="/payments">Оплаты</a> -->
 			<a (click)="toggleAdmin()">Admin</a>
+			<a class="command">Наша команда</a>
+			<a><md-icon>mail</md-icon></a>
+			<a>Выход</a>
 		</div>
 	</header>
 	<lr-progress></lr-progress>

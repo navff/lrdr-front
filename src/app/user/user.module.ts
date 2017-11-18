@@ -1,3 +1,4 @@
+import { PaymentsComponent } from './payments/payments.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
@@ -22,6 +23,7 @@ import { ClientComponent } from './clients/client/client.component';
     ClientsComponent,
     OrderComponent,
     ClientComponent,
+    PaymentsComponent,
   ]
 })
 export class UserModule { }

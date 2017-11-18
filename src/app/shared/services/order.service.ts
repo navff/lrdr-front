@@ -8,16 +8,16 @@ export class OrderService {
   constructor(private http: HttpService) { }
 
   create(order: Order) {
-    return this.http.post(`order`, order);
+    return this.http.post('order', order);
   }
   update(id, order: Order) {
     return this.http.post(`order/${id}`, order);
   }
   changeStatus(OrderId, Status: OrderStatus) {
-    return this.http.put(`order/changestatus`, { OrderId, Status });
+    return this.http.put('order/changestatus', { OrderId, Status });
   }
   changePrice(OrderId, Price: number) {
-    return this.http.put(`order/changeprice`, { OrderId, Price });
+    return this.http.put('order/changeprice', { OrderId, Price });
   }
   remove(id) {
     return this.http.delete(`order/${id}`);
@@ -32,6 +32,6 @@ export class OrderService {
     params.set('Page', page);
     params.set('SortBy', sortBy ? sortBy + '' : null);
 
-    return this.http.get(`order/search`, new RequestOptions({ params }));
+    return this.http.get('order/search', new RequestOptions({ params }));
   };
 }

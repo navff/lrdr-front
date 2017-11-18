@@ -1,3 +1,4 @@
+import { OrderService } from './../../../shared/services/order.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -6,8 +7,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class OrderComponent implements OnInit {
 
-  constructor() { }
+  constructor(private orderService: OrderService) { }
 
   ngOnInit() {
+    let code = '';
+    if (code) {
+      this.orderService.take(code);
+    }
   }
 }

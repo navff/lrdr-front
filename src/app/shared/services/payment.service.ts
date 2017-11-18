@@ -14,7 +14,7 @@ export class PaymentService {
     return this.http.put(`payment/${id}`, payment);
   }
   create(payment: Payment) {
-    return this.http.put(`payment`, payment);
+    return this.http.put('payment', payment);
   }
   remove(id) {
     return this.http.delete(`payment${id}`);
@@ -25,7 +25,7 @@ export class PaymentService {
     params.set('searchType', searchType ? searchType + '' : null);
     params.set('isDeleted', isDeleted ? isDeleted + '' : null);
     params.set('page', page);
-    
+
     return this.http.get('payment/search', new RequestOptions({ params }));
   }
 }

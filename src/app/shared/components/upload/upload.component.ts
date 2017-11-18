@@ -8,7 +8,7 @@ import { Component, Input } from '@angular/core';
 export class UploadComponent {
   constructor() {}
 
-  upload(event, isMain) {
+  upload(event) {
     let file: File = event.target.files[0];
     let reader = new FileReader();
     reader.readAsDataURL(file);

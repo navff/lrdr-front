@@ -1,26 +1,24 @@
+import { Order } from './../../models/order.model';
 import { OrderService } from './../../shared/services/order.service';
 import { User } from './../../models/user.model';
-import { UserService } from './../../shared/services/user.service';
 import { Component, OnInit } from '@angular/core';
+import { ViewChild } from '@angular/core/src/metadata/di';
 
 @Component({
   templateUrl: './orders.component.html',
-  providers: [UserService, OrderService],
+  providers: [OrderService],
   styleUrls: ['./orders.component.sass']
 })
 export class OrdersComponent implements OnInit {
 
+  orders: Order[];
   constructor(
-    private userService: UserService,
     private orderService: OrderService
   ) { }
-
-  do() {
-    this.orderService.list().subscribe(data => console.log(data));
+  onTabChange(event) {
+    console.log(event);
   }
   ngOnInit() {
-    if (localStorage.getItem('token')) {
-      this.userService.takeByToken().subscribe(data => console.log(data));
-    }
+    this.orderService.list().subscribe(data => this.orders = data.Content);
   }
 }
