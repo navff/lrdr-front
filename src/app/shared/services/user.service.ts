@@ -7,8 +7,8 @@ import { RequestOptions, URLSearchParams } from '@angular/http';
 export class UserService {
   constructor(private http: HttpService) { }
 
-  create(email: string) {
-    return this.http.post(`user`, email);
+  register(Email: string) {
+    return this.http.post(`user`, { Email });
   }
   update(email, user: User) {
     return this.http.post(`user?email=${email}`, user);
@@ -25,11 +25,13 @@ export class UserService {
   logout() {
     return this.http.put('user/logout');
   }
-  list(word: string, roles: Role[], page: string) {
+  list(word?: string, roles?: Role[], page?: string) {
     let params = new URLSearchParams();
     params.set('word', word);
     params.set('Page', page);
-    roles.forEach((i) => params.set('roles', i + ''));
+    if (roles) {
+      roles.forEach((i) => params.append('roles', i + ''));
+    }
 
     return this.http.get(`user/search`, new RequestOptions({ params }));
   };

@@ -1,4 +1,5 @@
 export class User {
+    RoleName: string;
     constructor(
         public Name: string,
         public Phone: string,

@@ -1,3 +1,4 @@
+import { User } from './user.model';
 export class Order {
     Id: number;
     Code: string;
@@ -6,6 +7,8 @@ export class Order {
     DeliveryAddress: string;
     ShowPayment: boolean;
     IsDeleted: boolean;
+    OwnerUser: User;
+    CustomerUser: User;
     constructor(
         public OwnerUserId: number,
         public Name: string,

@@ -25,12 +25,12 @@ export class OrderService {
   take(code: string) {
     return this.http.get(`order/${code}`);
   }
-  list(word: string, userId: string, page: string, sortBy: OrderSorting) {
+  list(word?: string, userId?: string, page?: string, sortBy?: OrderSorting) {
     let params = new URLSearchParams();
     params.set('word', word);
     params.set('userId', userId);
     params.set('Page', page);
-    params.set('SortBy', sortBy + '');
+    params.set('SortBy', sortBy ? sortBy + '' : null);
 
     return this.http.get(`order/search`, new RequestOptions({ params }));
   };

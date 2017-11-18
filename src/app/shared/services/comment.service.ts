@@ -9,19 +9,19 @@ export class CommentService {
   create(Id: number, Text: string, OrderId: number) {
     return this.http.post('comment', { Id, Text, OrderId });
   }
-  update(id: string, Text: string) {
+  update(id, Text: string) {
     return this.http.put(`comment/${id}`, { Text });
   }
-  remove(id: string) {
+  remove(id) {
     return this.http.delete(`comment/${id}`);
   }
-  take(id: string) {
+  take(id) {
     return this.http.get(`comment/${id}`);
   }
-  listByUser(id: string) {
+  listByUser(id) {
     return this.http.get(`comment/byuser/${id}`);
   }
-  listByOrder(id: string) {
+  listByOrder(id) {
     return this.http.get(`comment/byorder/${id}`);
   }
 }
