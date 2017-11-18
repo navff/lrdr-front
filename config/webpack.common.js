@@ -65,8 +65,8 @@ module.exports = function (options) {
     entry: {
 
       'polyfills': './src/polyfills.browser.ts',
-      'main':      AOT ? './src/main.browser.aot.ts' :
-                  './src/main.browser.ts'
+      'main': AOT ? './src/main.browser.aot.ts' :
+        './src/main.browser.ts'
 
     },
 
@@ -159,17 +159,6 @@ module.exports = function (options) {
         },
 
         /**
-         * To string and sass loader support for *.scss files (from Angular components)
-         * Returns compiled css content as string
-         *
-         */
-        // {
-        //   test: /\.(scss|sass)$/,
-        //   use: ['to-string-loader', 'css-loader', 'sass-loader'],
-        //   exclude: [helpers.root('src', 'styles')]
-        // },
-
-        /**
          * Raw loader support for *.html
          * Returns file content as string
          *
@@ -198,8 +187,16 @@ module.exports = function (options) {
 
         {
           test: /\.(sass)$/,
-          exclude: /node_modules/,
-          loader: 'raw-loader!sass-loader'
+          // loader: 'raw-loader!sass-loader'
+          use: [
+            'raw-loader',
+            'sass-loader',
+            {
+              loader: 'sass-resources-loader',
+              options: { resources: helpers.root('src/styles/vars.sass'), }
+            }
+          ],
+          exclude: ['/node_modules/', [helpers.root('src', 'styles')]],
         }
 
       ],
@@ -214,7 +211,7 @@ module.exports = function (options) {
     plugins: [
       // Remove all locale files in moment with the IgnorePlugin if you don't need them
       // new IgnorePlugin(/^\.\/locale$/, /moment$/),
-      
+
       // Use for DLLs
       // new AssetsPlugin({
       //   path: helpers.root('dist'),
@@ -290,7 +287,7 @@ module.exports = function (options) {
        */
       new CopyWebpackPlugin([
         { from: 'src/assets', to: 'assets' },
-        { from: 'src/meta'}
+        { from: 'src/meta' }
       ]),
 
       /*
@@ -324,20 +321,20 @@ module.exports = function (options) {
         template: 'src/index.html',
         title: METADATA.title,
         chunksSortMode: function (a, b) {
-          const entryPoints = ["inline","polyfills","sw-register","styles","vendor","main"];
+          const entryPoints = ["inline", "polyfills", "sw-register", "styles", "vendor", "main"];
           return entryPoints.indexOf(a.names[0]) - entryPoints.indexOf(b.names[0]);
         },
         metadata: METADATA,
         inject: 'body'
       }),
 
-       /**
-       * Plugin: ScriptExtHtmlWebpackPlugin
-       * Description: Enhances html-webpack-plugin functionality
-       * with different deployment options for your scripts including:
-       *
-       * See: https://github.com/numical/script-ext-html-webpack-plugin
-       */
+      /**
+      * Plugin: ScriptExtHtmlWebpackPlugin
+      * Description: Enhances html-webpack-plugin functionality
+      * with different deployment options for your scripts including:
+      *
+      * See: https://github.com/numical/script-ext-html-webpack-plugin
+      */
       new ScriptExtHtmlWebpackPlugin({
         sync: /polyfills|vendor/,
         defaultAttribute: 'async',

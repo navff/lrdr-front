@@ -22,7 +22,7 @@ export class HttpService extends Http {
     request(request: Request, options?: RequestOptionsArgs): Observable<Response> {
         this.responding.next(true);
         request.url = apiUrl + request.url;
-        request.headers.set('Authorization', `token ${localStorage.getItem('token')}`);
+        request.headers.set('Authorization', `token ABRAKADABRA`);
         return super.request(request, options)
             .finally(() => this.responding.next(false));
     }

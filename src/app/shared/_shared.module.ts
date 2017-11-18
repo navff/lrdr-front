@@ -10,10 +10,7 @@ import { ButtonComponent } from './components/button/button.component';
 import { ProgressBarComponent } from './components/progress-bar/progress-bar.component';
 import { UploadComponent } from './components/upload/upload.component';
 
-const Modules = [HttpModule, FormsModule, ReactiveFormsModule,
-  MaterialModule,
-  RouterModule,
-  CommonModule];
+const Modules = [HttpModule, FormsModule, ReactiveFormsModule, MaterialModule, RouterModule, CommonModule];
 
 const Components = [DatePipe, FooterComponent, ButtonComponent, ProgressBarComponent, UploadComponent];
 
