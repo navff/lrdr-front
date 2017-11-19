@@ -33,7 +33,7 @@
     </div>
     <form class="comment-input" (submit)="send()">
         <md-input-container>
-            <textarea rows="3" id="commentInput" mdInput [(ngModel)]="text" name="text" placeholder="Введите сообщение"></textarea>
+            <input id="commentInput" mdInput [(ngModel)]="text" name="text" placeholder="Введите сообщение">
         </md-input-container>
     </form>
 </div>
