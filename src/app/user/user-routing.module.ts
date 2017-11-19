@@ -18,8 +18,8 @@ const routes: Routes = [
     component: UserComponent,
     children: [
       { path: '', component: OrdersComponent },
-      { path: 'orders/create', component: CreateComponent},
-      { path: 'orders/:code', component: OrderComponent},
+      { path: 'order/create', component: CreateComponent},
+      { path: 'order/:code', component: OrderComponent},
       { path: 'clients', component: ClientsComponent },
       { path: 'clients/:id', component: ClientComponent },
       { path: 'payments', component: PaymentsComponent},
