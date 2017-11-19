@@ -1,4 +1,3 @@
-import { PaymentsComponent } from './payments/payments.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
@@ -7,6 +6,8 @@ import { OrdersComponent } from './orders/orders.component';
 import { OrderComponent } from './orders/order/order.component';
 import { ClientsComponent } from './clients/clients.component';
 import { ClientComponent } from './clients/client/client.component';
+import { ProfileComponent } from './profile/profile.component';
+import { PaymentsComponent } from './payments/payments.component';
 
 const routes: Routes = [
   {
@@ -17,7 +18,8 @@ const routes: Routes = [
       { path: 'orders/:id', component: OrderComponent },
       { path: 'clients', component: ClientsComponent },
       { path: 'clients/:id', component: ClientComponent },
-      { path: 'payments', component: PaymentsComponent}
+      { path: 'payments', component: PaymentsComponent},
+      { path: 'profile', component: ProfileComponent},
     ]
   }
 ];

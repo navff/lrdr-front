@@ -1,4 +1,3 @@
-import { PaymentsComponent } from './payments/payments.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
@@ -10,6 +9,8 @@ import { OrdersComponent } from './orders/orders.component';
 import { OrderComponent } from './orders/order/order.component';
 import { ClientsComponent } from './clients/clients.component';
 import { ClientComponent } from './clients/client/client.component';
+import { ProfileComponent } from './profile/profile.component';
+import { PaymentsComponent } from './payments/payments.component';
 
 @NgModule({
   imports: [
@@ -19,11 +20,10 @@ import { ClientComponent } from './clients/client/client.component';
   ],
   declarations: [
     UserComponent,
-    OrdersComponent,
-    ClientsComponent,
-    OrderComponent,
-    ClientComponent,
+    OrdersComponent, OrderComponent,
+    ClientComponent, ClientsComponent,
     PaymentsComponent,
+    ProfileComponent
   ]
 })
 export class UserModule { }

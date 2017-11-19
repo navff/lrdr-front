@@ -13,14 +13,8 @@ export class UserComponent implements OnInit {
 
   constructor(private userService: UserService) { }
 
-  toggleAdmin() {
-    localStorage.getItem('token') ?
-      localStorage.removeItem('token') :
-      localStorage.setItem('token', 'ABRAKADABRA');
-    window.location.reload();
-  }
   logout() {
-    this.userService.logout().subscribe(() => location.reload);
+    this.userService.logout().subscribe(() => window.location.reload);
   }
   ngOnInit() {
     if (localStorage.getItem('token')) {

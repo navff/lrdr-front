@@ -7,10 +7,9 @@
 			<a routerLink="/clients">Клиенты</a>
 			<a>Услуги</a>
 			<!-- <a routerLink="/payments">Оплаты</a> -->
-			<a (click)="toggleAdmin()">Admin</a>
 			<a class="command">Наша команда</a>
 			<a><md-icon>mail</md-icon></a>
-			<a class="profile"><md-icon>face</md-icon>{{user?.Name}}</a>
+			<a routerLink="/profile" class="profile"><md-icon>face</md-icon>{{user?.Name}}</a>
 			<a (click)="logout()">Выход</a>
 		</div>
 	</header>
