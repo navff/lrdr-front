@@ -17,8 +17,7 @@ const routes: Routes = [
     path: '',
     component: UserComponent,
     children: [
-      { path: '', redirectTo: '/orders', pathMatch: 'full' },
-      { path: 'orders', component: OrdersComponent },
+      { path: '', component: OrdersComponent },
       { path: 'orders/create', component: CreateComponent},
       { path: 'orders/:code', component: OrderComponent},
       { path: 'clients', component: ClientsComponent },
