@@ -20,7 +20,7 @@ export class CreateComponent implements OnInit {
   create() {
     this.order.Deadline = '2018-08-17';
     this.orderService.create(this.order)
-      .subscribe((res) => this.router.navigate(['orders', res.Id]));
+      .subscribe((res) => this.router.navigate(['orders', res.Code]));
   }
   ngOnInit() { }
 }

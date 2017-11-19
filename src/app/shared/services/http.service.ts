@@ -17,7 +17,7 @@ export class HttpService extends Http {
         if (match) {
             // localStorage.setItem('token', match[0].substr(6));
         }
-        localStorage.setItem('token', 'ABRAKADABRA');
+        // localStorage.setItem('token', 'ABRAKADABRA');
     }
 
     request(request: Request, options?: RequestOptionsArgs): Observable<Response> {

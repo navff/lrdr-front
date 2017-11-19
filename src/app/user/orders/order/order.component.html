@@ -27,7 +27,7 @@
 <h1>Переписка с заказчиком</h1>
 
 <div class="chat wrapper">
-    <div class="comments" >
+    <div class="comments">
         <p class="comment" *ngFor="let comment of comments">{{comment.Text}}</p>
     </div>
     <form class="comment-input" (submit)="send()">
