@@ -14,7 +14,9 @@ export class UserComponent implements OnInit {
   constructor(private userService: UserService) { }
 
   logout() {
-    this.userService.logout().subscribe(() => window.location.reload);
+    // this.userService.logout().subscribe(() => window.location.reload());
+    localStorage.removeItem('token');
+    window.location.reload();
   }
   ngOnInit() {
     if (localStorage.getItem('token')) {

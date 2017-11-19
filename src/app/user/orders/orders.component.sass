@@ -1,5 +1,5 @@
 md-tab-group
-    margin-bottom: 2.75rem
+    margin-bottom: 1.5rem
 
 .order
     display: flex
@@ -7,12 +7,11 @@ md-tab-group
     align-items: center
     width: 70%
     min-width: 38rem
-    margin-bottom: 1.25rem
-    padding: 1.4rem 1rem
-
-    box-shadow: $shadow
-    border-radius: 0.2rem
-    background-color: #fafafa
+    margin-top: 1.25rem
+    cursor: pointer
+    transition: 0.25s ease
+    &:hover
+        box-shadow: 0px 1px 7px 0.7px rgba($accent, 0.8)
     p span
         font-weight: 500
 .column
@@ -36,3 +35,27 @@ lr-button
     font-size: 0.75rem
     margin: 0 auto
     display: table
+
+.add
+    position: fixed
+    right: 2rem
+    bottom: 2rem
+    transition: 0.4s
+    transform: scale(1.3)
+    &:before,
+    &:after
+        content: ""
+        position: absolute
+        background-color: white
+    &:before
+        top: 1rem
+        right: 1.625rem
+        width: 0.25rem
+        height: 1.625rem
+    &:after
+        top: 1.6875rem
+        left: 0.9375rem
+        width: 1.625rem
+        height: 0.25rem
+    &:hover
+        transform: scale(1.4)

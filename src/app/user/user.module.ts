@@ -7,10 +7,12 @@ import { SharedModule } from '../shared/_shared.module';
 import { UserRoutingModule } from './user-routing.module';
 import { OrdersComponent } from './orders/orders.component';
 import { OrderComponent } from './orders/order/order.component';
+import { CreateComponent } from './orders/create/create.component';
 import { ClientsComponent } from './clients/clients.component';
 import { ClientComponent } from './clients/client/client.component';
 import { ProfileComponent } from './profile/profile.component';
 import { PaymentsComponent } from './payments/payments.component';
+import { EnterComponent } from './enter/enter.component';
 
 @NgModule({
   imports: [
@@ -20,10 +22,10 @@ import { PaymentsComponent } from './payments/payments.component';
   ],
   declarations: [
     UserComponent,
-    OrdersComponent, OrderComponent,
+    OrdersComponent, OrderComponent, CreateComponent,
     ClientComponent, ClientsComponent,
     PaymentsComponent,
-    ProfileComponent
+    ProfileComponent, EnterComponent,
   ]
 })
 export class UserModule { }

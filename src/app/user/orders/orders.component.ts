@@ -16,7 +16,10 @@ export class OrdersComponent implements OnInit {
     private orderService: OrderService
   ) { }
   onTabChange(event) {
-    console.log(event);
+    let params = [];
+    event === 1 ? params.push({name: 'IsPaid', value: true}) :
+    params.push({name: 'IsPaid', value: false});
+    this.orderService.list(params).subscribe(data => this.orders = data.Content);
   }
   ngOnInit() {
     this.orderService.list().subscribe(data => this.orders = data.Content);

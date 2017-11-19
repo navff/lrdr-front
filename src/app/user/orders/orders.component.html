@@ -6,8 +6,8 @@
     <md-tab color="accent" label="ТОЛЬКО МОИ"></md-tab>
     <md-tab color="accent" label="ВЫПОЛНЕННЫЕ"></md-tab>
 </md-tab-group>
-<div class="order" *ngFor="let order of orders">
-    <div class="column">
+<div class="order wrapper" *ngFor="let order of orders" [routerLink]="order.Code">
+    <div>
         <h2>{{order.Name}}</h2>
         <p>Заказчик: <span>{{order.CustomerUser.Name}}</span></p>
     </div>
@@ -19,3 +19,4 @@
         </div>
     </div>
 </div>
+<button md-fab class="add" routerLink="create"></button>

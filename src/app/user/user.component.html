@@ -2,15 +2,14 @@
 	<header>
 		<div class="container">
 			<img routerLink="/" src="assets/img/logo.png" alt="Light Order">
-			<a routerLink="/">Заказы</a>
-			<a>Задачи</a>
-			<a routerLink="/clients">Клиенты</a>
-			<a>Услуги</a>
-			<!-- <a routerLink="/payments">Оплаты</a> -->
-			<a class="command">Наша команда</a>
-			<a><md-icon>mail</md-icon></a>
-			<a routerLink="/profile" class="profile"><md-icon>face</md-icon>{{user?.Name}}</a>
-			<a (click)="logout()">Выход</a>
+			<a routerLinkActive="active" routerLink="/orders">Заказы</a>
+			<a routerLinkActive="active">Клиенты</a>
+			<a routerLinkActive="active">Услуги</a>
+			<!-- <a routerLinkActive="active" routerLink="/payments">Оплаты</a> -->
+			<a routerLinkActive="active" *ngIf="user" class="command"><md-icon>mail</md-icon></a>
+			<a routerLinkActive="active" *ngIf="user" routerLink="/profile" class="profile"><md-icon>face</md-icon>{{user?.Name}}</a>
+			<a routerLinkActive="active" *ngIf="user" (click)="logout()">Выход</a>
+			<a routerLinkActive="active" *ngIf="!user" routerLink="/enter">Вход</a>
 		</div>
 	</header>
 	<lr-progress></lr-progress>

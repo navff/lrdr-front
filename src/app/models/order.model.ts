@@ -7,18 +7,19 @@ export class Order {
     DeliveryAddress: string;
     ShowPayment: boolean;
     IsDeleted: boolean;
-    OwnerUser: User;
+    CustomerEmail: string;
+    ContractorUser: User;
     CustomerUser: User;
+    Created: string;
     constructor(
-        public OwnerUserId: number,
-        public Name: string,
-        public Deadline: any,
-        public CustomerUserId: number,
-        public Created: any,
-        public isDeleted: boolean
+        public ContractorUserId?: number,
+        public Name?: string,
+        public Deadline?: string,
+        public CustomerUserId?: number,
+        public isDeleted?: boolean
     ) { }
 }
 
 export enum OrderStatus { Created, Checked, Payed, Cancelled, Done }
 
-export enum OrderSorting { Updated, Created, Deadline, Owner, Customer }
+export enum OrderSorting { Updated, Created, Deadline, Contractor, Customer }

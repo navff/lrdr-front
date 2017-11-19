@@ -1,3 +1,4 @@
+import { Observable } from 'rxjs/Observable';
 import { User, Role } from './../../models/user.model';
 import { Injectable } from '@angular/core';
 import { HttpService } from './http.service';
@@ -11,16 +12,18 @@ export class UserService {
     return this.http.post(`user`, { Email });
   }
   update(email, user: User) {
-    return this.http.post(`user?email=${email}`, user);
+    return this.http.put(`user?email=${email}`, user);
   }
   remove(email) {
     return this.http.delete(`user/delete?email=${email}`);
   }
-  takeByToken() {
+  takeByToken(): Observable<User> {
     return this.http.get('user');
   }
   take(email: string) {
-    return this.http.get(`user?email=${email}`);
+    if (localStorage.getItem('token')) {
+      return this.http.get(`user?email=${email}`);
+    }
   }
   logout() {
     return this.http.put('user/logout');

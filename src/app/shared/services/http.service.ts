@@ -16,8 +16,8 @@ export class HttpService extends Http {
         const match = window.location.href.match(/token=(.)+/);
         if (match) {
             // localStorage.setItem('token', match[0].substr(6));
-            localStorage.setItem('Token', 'ABRAKADABRA');
         }
+        localStorage.setItem('token', 'ABRAKADABRA');
     }
 
     request(request: Request, options?: RequestOptionsArgs): Observable<Response> {

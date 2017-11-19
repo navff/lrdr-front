@@ -1,0 +1,38 @@
+<h1>Заказ</h1>
+<div class="info wrapper">
+    <div class="left">
+        <h2>{{order.Name}}</h2>
+        <p>Заказчик: {{order?.CustomerUser?.Name || 'Неизвестен'}}</p>
+        <p>Дата создания: {{order.Created}}</p>
+    </div>
+    <form #form="ngForm" class="form">
+        <div class="column">
+            <md-input-container>
+                <input mdInput [(ngModel)]="order.Price" name="customerEmail" placeholder="Цена" required>
+            </md-input-container>
+            <mat-input-container>
+                <input mdInput disabled [(ngModel)]="order.Deadline" name="deadline" placeholder="Срок до">
+                <!-- <button mdSuffix [mdDatepickerToggle]="picker"></button>
+                <md-datepicker #picker></md-datepicker> -->
+            </mat-input-container>
+        </div>
+        <md-input-container class="delivery">
+            <textarea rows="3" mdInput [(ngModel)]="order.DeliveryAddress" name="DeliveryAddress" placeholder="Адрес доставки"></textarea>
+        </md-input-container>
+    </form>
+    <div class="buttons">
+        <lr-button (click)="update()">СОХРАНИТЬ</lr-button>
+    </div>
+</div>
+<h1>Переписка с заказчиком</h1>
+
+<div class="chat wrapper">
+    <div class="comments" >
+        <p class="comment" *ngFor="let comment of comments">{{comment.Text}}</p>
+    </div>
+    <form class="comment-input" (submit)="send()">
+        <md-input-container>
+            <input id="commentInput" mdInput [(ngModel)]="text" name="text" placeholder="Введите сообщение">
+        </md-input-container>
+    </form>
+</div>
