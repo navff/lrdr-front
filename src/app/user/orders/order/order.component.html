@@ -31,7 +31,7 @@
         <div class="comment" *ngFor="let comment of comments">
             <md-icon>face</md-icon>
             <div class="message">
-                <p class="name">{{comment?.User?.Name}}</p>
+                <p class="name">{{comment?.User?.Name ? comment.User.Name : comment?.User?.Email}}</p>
                 <p>{{comment.Text}}</p>
             </div>
         </div>
