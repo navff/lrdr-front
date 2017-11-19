@@ -1,8 +1,8 @@
 <h1>Вход и регистрация</h1>
-<form (submit)="register()">
+<form #f="ngForm" (submit)="register()">
     <md-input-container>
         <input mdInput [(ngModel)]="email" name="email"
             placeholder="Электронная почта" type="email" email="true">
     </md-input-container>
-    <lr-button [disabled]="em.invalid" [loading]="responding">ОТПРАВИТЬ ССЫЛКУ</lr-button>
+    <lr-button [disabled]="f.invalid" [loading]="responding">ОТПРАВИТЬ ССЫЛКУ</lr-button>
 </form>
