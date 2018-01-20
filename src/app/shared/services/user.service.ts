@@ -9,7 +9,7 @@ export class UserService {
   constructor(private http: HttpService) { }
 
   register(Email: string) {
-    return this.http.post(`user`, { Email });
+    return this.http.post('user', { Email });
   }
   update(email, user: User) {
     return this.http.put(`user?email=${email}`, user);
@@ -36,6 +36,6 @@ export class UserService {
       roles.forEach((i) => params.append('roles', i + ''));
     }
 
-    return this.http.get(`user/search`, new RequestOptions({ params }));
+    return this.http.get('user/search', new RequestOptions({ params }));
   };
 }

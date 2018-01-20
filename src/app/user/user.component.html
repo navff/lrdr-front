@@ -1,8 +1,8 @@
 <div class="content">
 	<header>
 		<div class="container">
-			<img routerLink="/" src="assets/img/logo.png" alt="Light Order">
-			<a routerLinkActive="active" routerLink="/" [routerLinkActiveOptions]="{exact: true}">Заказы</a>
+			<img [routerLink]="hasToken ? '/orders' : '/'" src="assets/img/logo.png" alt="Light Order">
+			<a routerLinkActive="active" routerLink="/orders" [routerLinkActiveOptions]="{exact: true}">Заказы</a>
 			<a routerLinkActive="active">Клиенты</a>
 			<a routerLinkActive="active">Услуги</a>
 			<!-- <a routerLinkActive="active" routerLink="/payments">Оплаты</a> -->

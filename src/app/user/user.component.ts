@@ -2,6 +2,7 @@ import { User } from './../models/user.model';
 import { UserService } from './../shared/services/user.service';
 import { Order } from './../models/order.model';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   templateUrl: './user.component.html',
@@ -11,7 +12,10 @@ import { Component, OnInit } from '@angular/core';
 export class UserComponent implements OnInit {
   user: User;
 
-  constructor(private userService: UserService) { }
+  hasToken: boolean = !!localStorage.getItem('token');
+
+  constructor(private userService: UserService,
+              private router: Router) { }
 
   logout() {
     // this.userService.logout().subscribe(() => window.location.reload());
@@ -19,8 +23,14 @@ export class UserComponent implements OnInit {
     window.location.reload();
   }
   ngOnInit() {
-    if (localStorage.getItem('token')) {
+    if (this.hasToken) {
       this.userService.takeByToken().subscribe(user => this.user = user);
+    }
+
+    if (location.pathname === '/') {
+      this.hasToken ?
+      this.router.navigate(['orders']) :
+      this.router.navigate(['']);
     }
   }
 }

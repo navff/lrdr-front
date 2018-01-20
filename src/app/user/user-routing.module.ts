@@ -2,6 +2,7 @@ import { CreateComponent } from './orders/create/create.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
+import { MainComponent } from './main/main.component';
 import { UserComponent } from './user.component';
 import { OrdersComponent } from './orders/orders.component';
 import { OrderComponent } from './orders/order/order.component';
@@ -17,9 +18,10 @@ const routes: Routes = [
     path: '',
     component: UserComponent,
     children: [
-      { path: '', component: OrdersComponent },
-      { path: 'order/create', component: CreateComponent},
-      { path: 'order/:code', component: OrderComponent},
+      { path: '', component: MainComponent },
+      { path: 'orders', component: OrdersComponent },
+      { path: 'orders/create', component: CreateComponent},
+      { path: 'orders/:code', component: OrderComponent},
       { path: 'clients', component: ClientsComponent },
       { path: 'clients/:id', component: ClientComponent },
       { path: 'payments', component: PaymentsComponent},

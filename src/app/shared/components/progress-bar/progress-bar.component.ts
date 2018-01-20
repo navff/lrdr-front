@@ -1,6 +1,7 @@
 import { Subscription } from 'rxjs/Subscription';
 import { Component, OnDestroy } from '@angular/core';
 import { HttpService } from './../../services/http.service';
+
 @Component({
   selector: 'lr-progress',
   templateUrl: './progress-bar.component.html',

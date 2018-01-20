@@ -1,10 +1,11 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { UserComponent } from './user.component';
-
 import { SharedModule } from '../shared/_shared.module';
 import { UserRoutingModule } from './user-routing.module';
+
+import { MainComponent } from './main/main.component';
+import { UserComponent } from './user.component';
 import { OrdersComponent } from './orders/orders.component';
 import { OrderComponent } from './orders/order/order.component';
 import { CreateComponent } from './orders/create/create.component';
@@ -21,6 +22,7 @@ import { EnterComponent } from './enter/enter.component';
     UserRoutingModule
   ],
   declarations: [
+    MainComponent,
     UserComponent,
     OrdersComponent, OrderComponent, CreateComponent,
     ClientComponent, ClientsComponent,

@@ -187,7 +187,6 @@ module.exports = function (options) {
 
         {
           test: /\.(sass)$/,
-          // loader: 'raw-loader!sass-loader'
           use: [
             'raw-loader',
             'sass-loader',
