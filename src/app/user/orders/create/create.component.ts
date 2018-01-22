@@ -10,17 +10,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CreateComponent implements OnInit {
   order = new Order();
-
+  date: Date;
   constructor(
     private orderService: OrderService,
     private router: Router,
-  ) {
-  }
+  ) {}
 
   create() {
-    this.order.Deadline = '2018-08-17';
+    // this.order.Deadline = '2018-08-17';
+    this.order.Deadline = this.date.toISOString();
     this.orderService.create(this.order)
-      .subscribe((res) => this.router.navigate(['order', res.Code]));
+      .subscribe(res => this.router.navigate(['orders', res.Code]));
   }
   ngOnInit() { }
 }

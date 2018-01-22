@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpService } from './http.service';
+import { Observable } from 'rxjs/Observable';
 import { RequestOptions, URLSearchParams } from '@angular/http';
 
 @Injectable()
@@ -21,7 +22,7 @@ export class CommentService {
   listByUser(id) {
     return this.http.get(`comment/byuser/${id}`);
   }
-  listByOrder(id) {
+  listByOrder(id): Observable<any> {
     return this.http.get(`comment/byorder/${id}`);
   }
 }

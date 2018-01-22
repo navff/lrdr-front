@@ -19,7 +19,7 @@ import {
 * Platform and Environment providers/directives/pipes
 */
 import { ENV_PROVIDERS } from './environment';
-// App is our top level component
+// App is our top level componentё
 import { AppComponent } from './app.component';
 import { APP_RESOLVER_PROVIDERS } from './app.resolver';
 import { AppState, InternalStateType } from './app.service';
@@ -30,7 +30,7 @@ import { SharedModule } from './shared/_shared.module';
 
 import { AppRoutingModule } from './app-routing.module';
 
-import { Http } from '@angular/http';
+import { HttpClientModule } from '@angular/common/http';
 import { HttpService } from './shared/services/http.service';
 
 import '../styles/material-theme.scss';
@@ -40,7 +40,7 @@ import '../styles/reset.css';
 const APP_PROVIDERS = [
   ...APP_RESOLVER_PROVIDERS,
   AppState,
-  HttpService, { provide: Http, useClass: HttpService }
+  HttpService, { provide: HttpClientModule, useClass: HttpService }
 ];
 
 type StoreType = {

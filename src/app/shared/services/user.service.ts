@@ -17,7 +17,7 @@ export class UserService {
   remove(email) {
     return this.http.delete(`user/delete?email=${email}`);
   }
-  takeByToken(): Observable<User> {
+  takeByToken(): Observable<any> {
     return this.http.get('user');
   }
   take(email: string) {
@@ -26,7 +26,7 @@ export class UserService {
     }
   }
   logout() {
-    return this.http.put('user/logout');
+    return this.http.put('user/logout', null);
   }
   list(word?: string, roles?: Role[], page?: string) {
     let params = new URLSearchParams();

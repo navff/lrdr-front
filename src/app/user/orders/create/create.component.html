@@ -7,11 +7,11 @@
         <md-input-container>
             <input mdInput [(ngModel)]="order.CustomerEmail" name="customerEmail" placeholder="Email заказчика" required>
         </md-input-container>
-        <mat-input-container>
-            <input mdInput disabled [(ngModel)]="order.Deadline" name="deadline" placeholder="Срок до">
-            <!-- <button mdSuffix [mdDatepickerToggle]="picker"></button>
-            <md-datepicker #picker></md-datepicker> -->
-        </mat-input-container>
+        <md-input-container>
+            <input mdInput [mdDatepicker]="picker" [(ngModel)]="date" name="deadline" placeholder="Срок до">
+            <button mdSuffix [mdDatepickerToggle]="picker"></button>
+            <md-datepicker #picker></md-datepicker>
+        </md-input-container>
     </div>
     <md-input-container class="delivery">
         <textarea rows="3" mdInput [(ngModel)]="order.DeliveryAddress" name="DeliveryAddress" placeholder="Адрес доставки"></textarea>

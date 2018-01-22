@@ -33,6 +33,7 @@ export class OrderComponent implements OnInit {
       this.orderService.take(params.code)
         .subscribe(order => {
           this.order = order;
+          console.log(order);
           this.commentService.listByOrder(this.order.Id).subscribe(res => this.comments = res.Content);
         });
     });

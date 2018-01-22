@@ -11,7 +11,8 @@ import { ProgressBarComponent } from './components/progress-bar/progress-bar.com
 import { UploadComponent } from './components/upload/upload.component';
 import { StaticComponent } from './components/static/static.component';
 
-const Modules = [HttpModule, FormsModule, ReactiveFormsModule, MaterialModule, MdNativeDateModule, RouterModule, CommonModule];
+const Modules = [HttpModule, FormsModule, ReactiveFormsModule,
+  MaterialModule, MdNativeDateModule, RouterModule, CommonModule];
 
 const Components = [DatePipe, FooterComponent, ButtonComponent, ProgressBarComponent, UploadComponent, StaticComponent];
 
