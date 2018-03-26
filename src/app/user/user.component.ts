@@ -14,7 +14,7 @@ import { Observable } from 'rxjs/Observable';
 export class UserComponent implements OnInit {
   user: User;
   hasToken: boolean = !!localStorage.getItem('token');
-  blurHeader: boolean;
+  lesserHeader: boolean;
   constructor(
     private userService: UserService,
     private router: Router,
@@ -37,18 +37,18 @@ export class UserComponent implements OnInit {
         : this.router.navigate(['']);
     }
 
-    this.blurHeaderOnScroll();
+    this.reduceHeaderOnScroll();
   }
 
-  blurHeaderOnScroll() {
+  reduceHeaderOnScroll() {
     this.ngZone.runOutsideAngular(() => {
       Observable.fromEvent(window, 'scroll')
         .subscribe((e: any) => {
-          if (e.currentTarget.scrollY > 100 && !this.blurHeader) {
-            this.ngZone.run(() => this.blurHeader = true);
+          if (e.currentTarget.scrollY !== 0 && !this.lesserHeader) {
+            this.ngZone.run(() => this.lesserHeader = true);
           }
-          if (e.currentTarget.scrollY < 100 && this.blurHeader) {
-            this.ngZone.run(() => this.blurHeader = false);
+          if (e.currentTarget.scrollY === 0 && this.lesserHeader) {
+            this.ngZone.run(() => this.lesserHeader = false);
           }
         });
     });

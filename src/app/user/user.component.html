@@ -1,5 +1,5 @@
-<div class="content" #content>
-	<header [ngClass]="{blurry: blurHeader}">
+<div class="content" #content [ngClass]="{lesser: lesserHeader}">
+	<header [ngClass]="{lesser: lesserHeader}">
 		<div class="container" >
 			<img [routerLink]="hasToken ? '/orders' : '/'" src="assets/img/logo.png" alt="Light Order" [ngx-scroll-to]="content">
 			<a routerLinkActive="active" routerLink="/orders" [routerLinkActiveOptions]="{exact: true}" *ngIf="user">Заказы</a>
@@ -7,9 +7,9 @@
 			<a routerLinkActive="active" *ngIf="user">Услуги</a>
 			<!-- <a routerLinkActive="active" routerLink="/payments">Оплаты</a> -->
 
-			<a routerLinkActive="active" *ngIf="!user" ngx-scroll-to="for-who">Для кого</a>
-			<a routerLinkActive="active" *ngIf="!user" ngx-scroll-to="help">Функции</a>
-			<a routerLinkActive="active" *ngIf="!user" ngx-scroll-to="questions">Вопросы</a>
+			<a *ngIf="!user" routerLink="/" ngx-scroll-to="for-who">Для кого</a>
+			<a *ngIf="!user" routerLink="/" ngx-scroll-to="help">Функции</a>
+			<a *ngIf="!user" routerLink="/" ngx-scroll-to="questions">Вопросы</a>
 
 			<a routerLinkActive="active" *ngIf="user" class="command"><md-icon>mail</md-icon></a>
 			<a routerLinkActive="active" *ngIf="user" routerLink="/profile" class="profile"><md-icon>face</md-icon>{{user?.Name ? user.Name : user?.Email}}</a>
