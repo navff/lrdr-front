@@ -17,7 +17,7 @@ export class HttpService extends Http {
         if (match) {
             localStorage.setItem('token', match[0].substr(6));
         }
-        // localStorage.setItem('token', 'ABRAKADABRA');
+    // localStorage.setItem('token', 'ABRAKADABRA');
     }
 
     request(request: Request, options?: RequestOptionsArgs): Observable<Response> {
@@ -25,23 +25,7 @@ export class HttpService extends Http {
         request.url = apiUrl + request.url;
         request.headers.set('Authorization', `token ${localStorage.getItem('token')}`);
         return super.request(request, options)
-            .finally(() => this.responding.next(false));
+            .finally(() => this.responding.next(false))
+            .map((data) => data.json());
     }
-
-    get(url: string, options?: RequestOptions) {
-        return super.get(url, options).map((data) => data.json());
-    }
-
-    delete(url: string, options?: RequestOptions) {
-        return super.delete(url, options).map((data) => data.json());
-    }
-
-    post(url: string, body = null, options?: RequestOptions) {
-        return super.post(url, body, options).map((data) => data.json());
-    }
-
-    put(url: string, body = null, options?: RequestOptions) {
-        return super.put(url, body, options).map((data) => data.json());
-    }
-
 }

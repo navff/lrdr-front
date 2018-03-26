@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { SharedModule } from '../shared/_shared.module';
 import { UserRoutingModule } from './user-routing.module';
+import { ScrollToModule } from '@nicky-lenaers/ngx-scroll-to';
 
 import { MainComponent } from './main/main.component';
 import { UserComponent } from './user.component';
@@ -19,7 +20,9 @@ import { EnterComponent } from './enter/enter.component';
   imports: [
     CommonModule,
     SharedModule,
-    UserRoutingModule
+    UserRoutingModule,
+    ScrollToModule.forRoot(),
+
   ],
   declarations: [
     MainComponent,

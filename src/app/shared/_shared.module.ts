@@ -1,3 +1,4 @@
+import { AutoFocusDirective } from './directives/autofocus.directive';
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -14,7 +15,8 @@ import { StaticComponent } from './components/static/static.component';
 const Modules = [HttpModule, FormsModule, ReactiveFormsModule,
   MaterialModule, MdNativeDateModule, RouterModule, CommonModule];
 
-const Components = [DatePipe, FooterComponent, ButtonComponent, ProgressBarComponent, UploadComponent, StaticComponent];
+const Components = [DatePipe, FooterComponent, ButtonComponent, ProgressBarComponent, UploadComponent, StaticComponent,
+  AutoFocusDirective];
 
 @NgModule({
   imports: [Modules],

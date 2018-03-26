@@ -22,6 +22,7 @@ export class UserComponent implements OnInit {
     localStorage.removeItem('token');
     window.location.reload();
   }
+
   ngOnInit() {
     if (this.hasToken) {
       this.userService.takeByToken().subscribe(user => this.user = user);

@@ -1,3 +1,4 @@
+import { ScrollToModule } from '@nicky-lenaers/ngx-scroll-to';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
@@ -65,7 +66,7 @@ type StoreType = {
     BrowserAnimationsModule,
     SharedModule,
     AppRoutingModule
-  ],
+    ],
   /**
    * Expose our Services and Providers into Angular's dependency injection.
    */
