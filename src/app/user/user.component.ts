@@ -15,7 +15,6 @@ export class UserComponent implements OnInit {
   user: User;
   hasToken: boolean = !!localStorage.getItem('token');
   blurHeader: boolean;
-
   constructor(
     private userService: UserService,
     private router: Router,
@@ -26,9 +25,6 @@ export class UserComponent implements OnInit {
     // this.userService.logout().subscribe(() => window.location.reload());
     localStorage.removeItem('token');
     window.location.reload();
-  }
-  log() {
-    console.log('blabla');
   }
   ngOnInit() {
     if (this.hasToken) {

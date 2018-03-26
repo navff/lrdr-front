@@ -1,12 +1,12 @@
-<div class="content">
+<div class="content" #content>
 	<header [ngClass]="{blurry: blurHeader}">
-		<div class="container">
-			<img [routerLink]="hasToken ? '/orders' : '/'" src="assets/img/logo.png" alt="Light Order">
+		<div class="container" >
+			<img [routerLink]="hasToken ? '/orders' : '/'" src="assets/img/logo.png" alt="Light Order" [ngx-scroll-to]="content">
 			<a routerLinkActive="active" routerLink="/orders" [routerLinkActiveOptions]="{exact: true}" *ngIf="user">Заказы</a>
 			<a routerLinkActive="active" *ngIf="user">Клиенты</a>
 			<a routerLinkActive="active" *ngIf="user">Услуги</a>
 			<!-- <a routerLinkActive="active" routerLink="/payments">Оплаты</a> -->
-			{{log()}}
+
 			<a routerLinkActive="active" *ngIf="!user" ngx-scroll-to="for-who">Для кого</a>
 			<a routerLinkActive="active" *ngIf="!user" ngx-scroll-to="help">Функции</a>
 			<a routerLinkActive="active" *ngIf="!user" ngx-scroll-to="questions">Вопросы</a>
