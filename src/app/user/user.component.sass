@@ -1,10 +1,21 @@
+.content
+    padding-top: 4.6rem
+
 header
     position: fixed
+    top: 0
     z-index: 1
     width: 100%
     background-color: $accent
     padding: 1rem 0
     box-shadow: $shadow
+    transition: 0.2s ease
+
+    &.blurry
+        padding: 0.5rem 0
+        opacity: 0.5
+        &:hover
+            opacity: 1
     .container
         display: flex
         align-items: center

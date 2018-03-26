@@ -3,6 +3,8 @@ import { UserService } from './../shared/services/user.service';
 import { Order } from './../models/order.model';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { NgZone } from '@angular/core';
+import { Observable } from 'rxjs/Observable';
 
 @Component({
   templateUrl: './user.component.html',
@@ -11,27 +13,48 @@ import { Router } from '@angular/router';
 })
 export class UserComponent implements OnInit {
   user: User;
-
   hasToken: boolean = !!localStorage.getItem('token');
+  blurHeader: boolean;
 
-  constructor(private userService: UserService,
-              private router: Router) { }
+  constructor(
+    private userService: UserService,
+    private router: Router,
+    private ngZone: NgZone
+  ) {}
 
   logout() {
     // this.userService.logout().subscribe(() => window.location.reload());
     localStorage.removeItem('token');
     window.location.reload();
   }
-
+  log() {
+    console.log('blabla');
+  }
   ngOnInit() {
     if (this.hasToken) {
-      this.userService.takeByToken().subscribe(user => this.user = user);
+      this.userService.takeByToken().subscribe(user => (this.user = user));
     }
 
     if (location.pathname === '/') {
-      this.hasToken ?
-      this.router.navigate(['orders']) :
-      this.router.navigate(['']);
+      this.hasToken
+        ? this.router.navigate(['orders'])
+        : this.router.navigate(['']);
     }
+
+    this.blurHeaderOnScroll();
+  }
+
+  blurHeaderOnScroll() {
+    this.ngZone.runOutsideAngular(() => {
+      Observable.fromEvent(window, 'scroll')
+        .subscribe((e: any) => {
+          if (e.currentTarget.scrollY > 100 && !this.blurHeader) {
+            this.ngZone.run(() => this.blurHeader = true);
+          }
+          if (e.currentTarget.scrollY < 100 && this.blurHeader) {
+            this.ngZone.run(() => this.blurHeader = false);
+          }
+        });
+    });
   }
 }
