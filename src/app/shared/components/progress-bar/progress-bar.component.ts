@@ -1,6 +1,7 @@
 import { Subscription } from 'rxjs/Subscription';
 import { Component, OnDestroy } from '@angular/core';
 import { HttpService } from './../../services/http.service';
+import { SharedService } from '../../services/shared.service';
 
 @Component({
   selector: 'lr-progress',
@@ -11,8 +12,8 @@ export class ProgressBarComponent implements OnDestroy {
   responding: boolean;
   sub: Subscription;
 
-  constructor(private http: HttpService) {
-    this.sub = this.http.responding.subscribe(data => this.responding = data);
+  constructor(private shared: SharedService) {
+    this.sub = this.shared.requests$.subscribe(data => this.responding = data > 0 ? true : false);
   }
 
   ngOnDestroy() {

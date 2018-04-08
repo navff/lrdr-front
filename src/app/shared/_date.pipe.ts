@@ -1,6 +1,6 @@
 import { Pipe, PipeTransform } from '@angular/core';
 
-@Pipe({name: 'myDate'})
+@Pipe({name: 'lrDate'})
 export class DatePipe implements PipeTransform {
     transform(date: string): any {
         const year = date.substr(0, 4);

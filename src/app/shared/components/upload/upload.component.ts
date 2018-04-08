@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'lr-upload',
@@ -6,6 +6,9 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./upload.component.sass'],
 })
 export class UploadComponent {
+  @Input() url: string;
+  @Output() success: EventEmitter<{data: any, name: string}> = new EventEmitter();
+  @Output() remove = new EventEmitter();
   constructor() {}
 
   upload(event) {
@@ -14,10 +17,12 @@ export class UploadComponent {
     reader.readAsDataURL(file);
     reader.onloadend = () => {
       let data = reader.result.replace(/^data:image\/[a-z]+;base64,/, '');
+      this.success.emit({data, name: file.name});
     };
   }
 
-  remove() {
+  clear() {
     (<HTMLScriptElement> document.getElementById('input'))['value'] = null;
+    this.remove.emit();
   }
 }

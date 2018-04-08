@@ -29,13 +29,13 @@ export class UserService {
     return this.http.put('user/logout', null);
   }
   list(word?: string, roles?: Role[], page?: string) {
-    let params = new URLSearchParams();
-    params.set('word', word);
-    params.set('Page', page);
-    if (roles) {
-      roles.forEach((i) => params.append('roles', i + ''));
-    }
+    // let params = new URLSearchParams();
+    // params.set('word', word);
+    // params.set('Page', page);
+    // if (roles) {
+    //   roles.forEach((i) => params.append('roles', i + ''));
+    // }
 
-    return this.http.get('user/search', new RequestOptions({ params }));
+    // return this.http.get('user/search', new RequestOptions({ params }));
   };
 }

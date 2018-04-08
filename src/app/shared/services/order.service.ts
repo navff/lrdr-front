@@ -2,7 +2,6 @@ import { Order, OrderStatus, OrderSorting } from './../../models/order.model';
 import { Injectable } from '@angular/core';
 import { HttpService } from './http.service';
 import { Observable } from 'rxjs/Observable';
-import { RequestOptions, URLSearchParams } from '@angular/http';
 
 @Injectable()
 export class OrderService {
@@ -27,13 +26,12 @@ export class OrderService {
     return this.http.get(`order/${code}`);
   }
   list(params?: any, page?: number, sortBy?: OrderSorting): Observable<any> {
-    let searchParams = new URLSearchParams();
-    if (params) {
-      params.forEach(i => searchParams.set(i.name, i.value + ''));
-    }
-    searchParams.set('Page', page && page + '');
-    searchParams.set('SortBy', sortBy && sortBy + '');
-
-    return this.http.get('order/search', new RequestOptions({ params }));
+    // let searchParams = new URLSearchParams();
+    // if (params) {
+    //   params.forEach(i => searchParams.set(i.name, i.value + ''));
+    // }
+    // searchParams.set('Page', page && page + '');
+    // searchParams.set('SortBy', sortBy && sortBy + '');
+    return this.http.get('order/search', { params: params && this.http.setSearch(params) });
   };
 }

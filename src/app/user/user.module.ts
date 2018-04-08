@@ -22,7 +22,6 @@ import { EnterComponent } from './enter/enter.component';
     SharedModule,
     UserRoutingModule,
     ScrollToModule.forRoot(),
-
   ],
   declarations: [
     MainComponent,

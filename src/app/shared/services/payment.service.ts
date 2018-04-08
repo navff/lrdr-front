@@ -26,6 +26,6 @@ export class PaymentService {
     params.set('isDeleted', isDeleted ? isDeleted + '' : null);
     params.set('page', page);
 
-    return this.http.get('payment/search', new RequestOptions({ params }));
+    return this.http.get('payment/search', { params: params && this.http.setSearch(params) });
   }
 }

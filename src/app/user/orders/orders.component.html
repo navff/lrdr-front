@@ -1,5 +1,5 @@
 <h1>Заказы</h1>
-<ng-container *ngIf="orders && orders.length > 0">
+<ng-container *ngIf="showOrders">
     <md-tab-group (selectedIndexChange)="onTabChange($event)">
         <md-tab color="accent" label="ОПЛАЧЕННЫЕ"></md-tab>
         <md-tab color="accent" label="НЕОПЛАЧЕННЫЕ"></md-tab>
@@ -7,15 +7,15 @@
         <md-tab color="accent" label="ТОЛЬКО МОИ"></md-tab>
         <md-tab color="accent" label="ВЫПОЛНЕННЫЕ"></md-tab>
     </md-tab-group>
-    <div class="order wrapper" *ngFor="let order of orders" [routerLink]="order.Code">
+    <div class="order wrapper" *ngFor="let order of orders" [routerLink]="'/order/' + order.Code">
         <div>
             <h2>{{order.Name}}</h2>
             <p>Заказчик: <span>{{order.CustomerUser.Name}}</span></p>
         </div>
         <div class="column">
-            <p class="date">{{order.Created | myDate}}</p>
+            <p class="date">{{order.Created | lrDate}}</p>
             <div class="row">
-                <p>Срок до: <span>{{order.Deadline | myDate}}</span></p>
+                <p>Срок до: <span>{{order.Deadline | lrDate}}</span></p>
                 <p>Цена: <span>{{order.Price}}₽</span></p>
             </div>
         </div>
@@ -23,7 +23,7 @@
     <button md-fab class="add" routerLink="create"></button>
 </ng-container>
 
-<div class="empty wrapper" *ngIf="orders && orders.length === 0">
+<div class="empty wrapper" *ngIf="showOrders === false">
     <p>Вы пока не создали ни одного заказа. Создайте первый и добавьте туда первого клиента.</p>
     <lr-button routerLink="create">Добавить заказ</lr-button>
 </div>

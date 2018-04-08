@@ -1,5 +1,6 @@
 <h1>Мой профиль</h1>
 <div class="wrapper">
+    <lr-upload (success)="loadPicture($event)"></lr-upload>
     <md-icon>person</md-icon>
     <form (submit)="update()">
         <div class="left">

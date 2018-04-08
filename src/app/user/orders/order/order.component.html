@@ -3,7 +3,7 @@
     <div class="left">
         <h2>{{order.Name}}</h2>
         <p>Заказчик: {{order?.CustomerUser?.Name || 'Неизвестен'}}</p>
-        <p>Дата создания: {{order.Created}}</p>
+        <p>Дата создания: {{order.Created && (order.Created | lrDate)}}</p>
     </div>
     <form #form="ngForm" class="form">
         <div class="column">

@@ -2,7 +2,7 @@ import { AutoFocusDirective } from './directives/autofocus.directive';
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HttpModule } from '@angular/http';
+import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { MaterialModule, MdNativeDateModule } from '@angular/material';
 import { DatePipe } from './_date.pipe';
@@ -12,7 +12,7 @@ import { ProgressBarComponent } from './components/progress-bar/progress-bar.com
 import { UploadComponent } from './components/upload/upload.component';
 import { StaticComponent } from './components/static/static.component';
 
-const Modules = [HttpModule, FormsModule, ReactiveFormsModule,
+const Modules = [HttpClientModule, FormsModule, ReactiveFormsModule,
   MaterialModule, MdNativeDateModule, RouterModule, CommonModule];
 
 const Components = [DatePipe, FooterComponent, ButtonComponent, ProgressBarComponent, UploadComponent, StaticComponent,

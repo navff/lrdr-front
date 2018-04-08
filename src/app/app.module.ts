@@ -1,7 +1,8 @@
+import { SharedService } from './shared/services/shared.service';
 import { ScrollToModule } from '@nicky-lenaers/ngx-scroll-to';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
-import { HttpModule } from '@angular/http';
+import { HttpClientModule } from '@angular/common/http';
 import {
   NgModule,
   ApplicationRef
@@ -31,7 +32,6 @@ import { SharedModule } from './shared/_shared.module';
 
 import { AppRoutingModule } from './app-routing.module';
 
-import { HttpClientModule } from '@angular/common/http';
 import { HttpService } from './shared/services/http.service';
 
 import '../styles/material-theme.scss';
@@ -41,7 +41,8 @@ import '../styles/reset.css';
 const APP_PROVIDERS = [
   ...APP_RESOLVER_PROVIDERS,
   AppState,
-  HttpService, { provide: HttpClientModule, useClass: HttpService }
+  HttpService, { provide: HttpClientModule, useClass: HttpService },
+  SharedService,
 ];
 
 type StoreType = {
@@ -72,7 +73,7 @@ type StoreType = {
    */
   providers: [
     ENV_PROVIDERS,
-    APP_PROVIDERS
+    APP_PROVIDERS,
   ]
 })
 export class AppModule {
