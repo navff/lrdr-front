@@ -1,14 +1,15 @@
 <h1>Создание</h1>
-<form class="wrapper" (submit)="create()">
+<form class="wrapper" (ngSubmit)="create()">
     <md-input-container class="name">
         <input mdInput [(ngModel)]="order.Name" name="name" placeholder="Название" required>
     </md-input-container>
     <div class="column">
         <md-input-container>
-            <input mdInput [(ngModel)]="order.CustomerEmail" name="customerEmail" placeholder="Email заказчика" required>
+            <input mdInput [(ngModel)]="order.CustomerEmail" name="customerEmail" placeholder="Email заказчика" required
+            pattern="^([^<>()\[\]\.,;:\s@]+(\.[^<>()\[\]\.,;:\s@]+)*)@(([^<>()[\]\.,;:\s@]+\.)+[^<>()[\]\.,;:\s@]{2,})">
         </md-input-container>
         <md-input-container>
-            <input mdInput [mdDatepicker]="picker" [(ngModel)]="date" name="deadline" placeholder="Срок до">
+            <input mdInput [min]="minDate" [mdDatepicker]="picker" [(ngModel)]="date" name="deadline" placeholder="Срок до">
             <button mdSuffix [mdDatepickerToggle]="picker"></button>
             <md-datepicker #picker></md-datepicker>
         </md-input-container>
@@ -18,4 +19,3 @@
     </md-input-container>
     <lr-button>Создать</lr-button>
 </form>
-<!-- <h1>Переписка с заказчиком</h1> -->

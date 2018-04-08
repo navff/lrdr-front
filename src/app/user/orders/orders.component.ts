@@ -11,10 +11,8 @@ import { ViewChild } from '@angular/core/src/metadata/di';
 })
 export class OrdersComponent implements OnInit {
 
-  orders: Order[];
-  constructor(
-    private orderService: OrderService
-  ) { }
+  orders: Order[] = [];
+  constructor(private orderService: OrderService) {}
   onTabChange(event) {
     let params = [];
     event === 1 ? params.push({name: 'IsPaid', value: true}) :
